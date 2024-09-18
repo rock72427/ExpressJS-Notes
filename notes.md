@@ -59,3 +59,23 @@ app.get("/", (req, res) => {
     // logic to handle the request & response
 })
 ```
+
+## Request Object:
+
+- In Express.js, the request object is an instance of the http.IncommingMessage object from Node.js, augumented with additional properties and methods by Express.
+- This object contains all the information about the HTTP request made by the client.
+
+### Properties:
+
+1. `req.app`: The app prpeprty holds a reference to the Express application that is using the middleware. Type: object
+2. `req.baseUrl`: The URL path on which a router instance was mounted. Type: string
+3. `req.body`: Contains key-value pairs of data submitted in the request body. By default, it is undefined. Middleware like body-parse or express.json() is needed to populate this property. Type: object
+4. `req.cookies`: When using the cookie-parser middleware, this property contains cookies sent by the client. Type: object
+5. `req.hostname`: Contains the hostname derived from the Host HTTP header. Type: string
+6. `req.ip`: The remote IP address of the request. Type: string
+7. `rej.method`: The HTTP method of the request (e.g., GET, POST). Type: string
+8. `req.params`: Contains route parameters, captured in the URL pattern of the route. Type: object
+9. `req.path`: The request path (excluding the query string). Type: string
+10. `req.protocol`: The request protocol (http or https). Type: string
+11. `req.query`: An object containering a property for each query string parameter. Type: object
+12. `req.route`: The currently matched route. Type: object
