@@ -60,22 +60,252 @@ app.get("/", (req, res) => {
 })
 ```
 
-## Request Object:
+### Request Object:
 
-- In Express.js, the request object is an instance of the http.IncommingMessage object from Node.js, augumented with additional properties and methods by Express.
+- In Express.js, the request object is an instance of the http.-
+- IncomingMessage object from Node.js,augmented with additional properties and methods by Express.
 - This object contains all the information about the HTTP request made by the client.
 
-### Properties:
+#### Properties:
 
-1. `req.app`: The app prpeprty holds a reference to the Express application that is using the middleware. Type: object
-2. `req.baseUrl`: The URL path on which a router instance was mounted. Type: string
-3. `req.body`: Contains key-value pairs of data submitted in the request body. By default, it is undefined. Middleware like body-parse or express.json() is needed to populate this property. Type: object
-4. `req.cookies`: When using the cookie-parser middleware, this property contains cookies sent by the client. Type: object
-5. `req.hostname`: Contains the hostname derived from the Host HTTP header. Type: string
-6. `req.ip`: The remote IP address of the request. Type: string
-7. `rej.method`: The HTTP method of the request (e.g., GET, POST). Type: string
-8. `req.params`: Contains route parameters, captured in the URL pattern of the route. Type: object
-9. `req.path`: The request path (excluding the query string). Type: string
-10. `req.protocol`: The request protocol (http or https). Type: string
-11. `req.query`: An object containering a property for each query string parameter. Type: object
-12. `req.route`: The currently matched route. Type: object
+1. `req.app`: The app property holds a reference to the Express application that is using the middleware.
+   Type: object
+
+2. `req.baseUrl`: The URL path on which a router instance was mounted.
+   Type: string
+
+3. `req.body`: Contains key-value pairs of data submitted in the request body. By default, it is undefined. Middleware like body-parser or express.json() is needed to populate this property.
+   Type: object
+
+4. `req.cookies`: When using the cookie-parser middleware, this property contains cookies sent by the client.
+   Type: object
+
+5. `req.hostname`: Contains the hostname derived from the Host HTTP header.
+   Type: string
+
+6. `req.ip`: The remote IP address of the request.
+   Type: string
+
+7. `req.method`: The HTTP method of the request (e.g., GET, POST).
+   Type: string
+
+8. `req.params`: Contains route parameters, captured in the URL pattern of the route.
+   Type: object
+
+9. `req.path`: The request path (excluding the query string).
+   Type: string
+
+10. `req.protocol`: The request protocol (http or https).
+    Type: string
+
+11. `req.query`: An object containing a property for each query string parameter.
+    Type: object
+
+12. `req.route`: The currently matched route.
+    Type: object
+
+### Response Object:
+
+- In Express.js, the response object is an instance of the http.
+- ServerResponse object from Node.js, augmented with additional properties and methods by Express.
+- This object is used to send back the desired HTTP response to the client.
+
+1. `res.attachment([filename])`: Sets the Content-Disposition header to "attachment" to prompt the user to download the file.
+
+   - `Parameter`:
+     - `filename (string)` - Optional. The name of the file to download.
+
+2. `res.cookie(name, value [, options])`: Sets a cookie with the specified name and value.
+
+   - `Parameters`:
+     - `name (string)` - The name of the cookie.
+     - `value (string or object)` - The value of the cookie.
+     - `options (object)` - Optional. Options for the cookie.
+
+3. `res.clearCookie(name [, options])`: Clears the cookie specified by name.
+
+   - `Parameters`:
+     - `name (string)` - The name of the cookie to clear.
+     - `options (object)` - Optional. Options for clearing the cookie.
+
+4. `res.download(path [, filename] [, options] [, fn])`: Transfers the file at path as an "attachment", prompting a file download.
+
+   - `Parameters`:
+     - `path (string)` - The file path.
+     - `filename (string)` - Optional. The name of the file to download.
+     - `options (object)` - Optional. Options for the download.
+     - `fn (function)` - Optional. A callback function.
+
+5. `res.end([data] [, encoding] [, callback])`: Ends the response process.
+
+   - `Parameters`:
+     - `data (string or buffer)` - Optional. Data to send as the response body.
+     - `encoding (string)` - Optional. The encoding of the data.
+     - `callback (function)` - Optional. A callback function.
+
+6. `res.get(field)`: Returns the value of the specified HTTP response header field.
+
+   - `Parameter`:
+     - `field (string)` - The name of the header field.
+     - `Returns`: The value of the header field.
+
+7. `res.json([body])`: Sends a JSON response.
+
+   - `Parameter`:
+     - `body (object)` - Optional. The response body.
+
+8. `res.links(links)`: Sets the Link HTTP header with the provided links.
+   `- Parameter`: links (object) - An object of links.
+
+9. `res.location(path)`: Sets the Location HTTP header to the specified path.
+
+   - `Parameter`: path (string) - The location URL.
+
+10. `res.redirect([status,] path)`: Redirects the request to the specified URL with an optional status code.
+
+    - `Parameters`:
+      - `status (number)` - Optional. The HTTP status code.
+      - `path (string)` - The URL to redirect to.
+
+11. `res.render(view [, locals] [, callback])`: Renders a view and sends the HTML as the response.
+
+    - `Parameters`:
+      - `view (string)` - The name of the view to render.
+      - `locals (object)` - Optional. Local variables for the view.
+      - `callback (function)` - Optional. A callback function.
+
+12. `res.send([body])`: Sends the HTTP response.
+
+    - `Parameter`:
+      - `body (string, buffer, or object)` - Optional. The response body.
+
+13. `res.sendFile(path [, options] [, fn])`: Sends a file as an octet stream.
+
+    - `Parameters`:
+      - `path (string)` - The file path.
+      - `options (object)` - Optional. Options for sending the file.
+      - `fn (function)` - Optional. A callback function.
+
+14. `res.sendStatus(statusCode)`: Sets the HTTP status code and sends the status as the response body.
+
+    - Parameter: statusCode (number) - The HTTP status code.
+
+15. `res.set(field [, value])`: Sets the response header field to the specified value, or sets multiple fields if an object
+    is passed.
+
+    - `Parameters`:
+      - `field (string or object)` - The name of the header field or an object of header fields.
+      - `value (string)` - Optional. The value of the header field.
+
+16. `res.status(code)`: Sets the HTTP status for the response.
+    - Parameter: code (number) - The HTTP status code.
+
+## HTTP
+
+- Hypertext Transfer protocol (HTTP) is an application layer protocol for transmitting hypermiedia documdngs such as HTML.
+- It was designed for communication between web browser and web servers, but it can also be used for other purposes.
+- It is the man way web browsers on a servers communicate to share information on the internet.
+
+> HTTP work shop is a request response system when the client asks information and server request for data.
+
+## API
+
+- API (Application Programming Interface) is a set of rule or protocoles that enables software applications to communcate with each other to exchange dta features and functionality.
+
+## Rest API
+
+- (Representation State Transfer API) is also known as restfull API is a application programming interface that follows design principles of rest architecture.
+- Rest API provide flexible lightweight way to interogate web application and to connect components a microservices architecture.
+
+## HTTP Header
+
+- HTTP headers let the client and server pass additional information with a HTTP request or response an HTTP header consists of its case insensitive name follows by a colon(:) then by its value.
+
+- HTTP headers are of 4 types
+
+1. request headers
+2. response headers
+3. general headers
+4. entity headers
+
+5. `request headers`: These type of http headers stores information about clients fetch request.
+6. `response headers`: This header is use to store the information about server responses like status code.
+7. `general headers`: This headers are applied to both request and response.
+8. `entity headers`: They are the info about the data like content length and content type.
+
+#### Example
+
+- content type
+- content length
+- cross origin
+- status code
+- url
+- date
+- modifieof
+- cookies
+- authorization
+
+## HTTP Methods
+
+- HTTP method typically associated with Restful wb development and hypertext transfer protocol and most commonly used by Restful api, designers:
+
+1. GET
+2. PUT
+3. POST
+4. DELETE
+5. PATCH
+6. HEAD
+7. OPTIONS
+8. TRACE
+9. CONNECT
+
+## Q1. What is the difference between create method and post method in rest API
+
+## Q2. What is the difference between post and put method
+
+## HTTP status code
+
+- HTTP response status codes indicate wheather a specific HTTP request has been successfully completed.
+- These are some 3 digits code send by the servers to the clients according to the request.
+
+- Status Codes are divided into 5 classes
+
+1. Information responses (100 - 199)
+2. Successfull codes (200 - 299)
+3. Re-directional codes (300 - 399)
+4. Client-side Error (400 - 499)
+5. Server-Side Error (500 - 599)
+
+- 100 - continue
+- 101 - switching protocol
+- 200 - ok
+- 201 - created
+- 202 - accepted
+- 204 - no-context
+- 301 - moved permanently
+- 302 - found
+- 304 - not modified
+- 400 - bad request
+- 401 - unauthorized
+- 403 - forbidden
+- 404 - not found
+- 402 - request required
+- 408 - request timeout
+- 500 - internal server error
+- 502 - bad getway
+- 503 - service unavailable
+
+The content-type header is to indicate the media type of the resource the media type is a string along with the file indicating the format of the file.
+
+- text/plain (plain text file)
+- text/html (html files)
+- text/css (css files)
+- text/javascript (js files)
+- application/json (json delete)
+- application/xml (delete)
+- image/png (png image)
+- image/ipg (jpg image)
+- application/pdf (pdf files)
+- application/x-www-formation coded (url data)
+- video/mp4 (mp4 video)
+- multipart/form-data (formdata/file uploading)
