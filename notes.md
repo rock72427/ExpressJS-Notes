@@ -8,9 +8,9 @@
 - It is a light-weight and flexible framework which provides different middleware options to easily handle request, response and routes to create a scalable application.
 - Features of ExpressJS:
 
-1. `Middleware and Routing`: Define clear pathways (routes) within your application to handle incomming HTTP requests (GET, POST, PUT, DELETE) with ease. Implement reusable functions (middleware) to intercept requests and create responses, adding functionalitlies like authentication, logging, and data parsing.
-2. `Minimalistic Design`: Express.js follows a simple and minimalistic design philosophy. This simplicity allows you to quickly set up a server, define routes, and handle HTTP requests efficiently. It's an excellent choice for building web applications without unnecessary complexity.
-3. `Flexibility and Customization`: Express.js doesn't impose a strict application architecture. You can structure your code according to your preferences. Whether you're building a RESTful API or a full-fledged web app, Express.js adapts to your needs.
+  1.  **Middleware and Routing**: Define clear pathways (routes) within your application to handle incomming HTTP requests (GET, POST, PUT, DELETE) with ease. Implement reusable functions (middleware) to intercept requests and create responses, adding functionalitlies like authentication, logging, and data parsing.
+  2.  **Minimalistic Design**: Express.js follows a simple and minimalistic design philosophy. This simplicity allows you to quickly set up a server, define routes, and handle HTTP requests efficiently. It's an excellent choice for building web applications without unnecessary complexity.
+  3.  **Flexibility and Customization**: Express.js doesn't impose a strict application architecture. You can structure your code according to your preferences. Whether you're building a RESTful API or a full-fledged web app, Express.js adapts to your needs.
 
 ## Applications of Express
 
@@ -68,40 +68,40 @@ app.get("/", (req, res) => {
 
 #### Properties:
 
-1. `req.app`: The app property holds a reference to the Express application that is using the middleware.
+1. **req.app**: The app property holds a reference to the Express application that is using the middleware.
    Type: object
 
-2. `req.baseUrl`: The URL path on which a router instance was mounted.
+2. **req.baseUrl**: The URL path on which a router instance was mounted.
    Type: string
 
-3. `req.body`: Contains key-value pairs of data submitted in the request body. By default, it is undefined. Middleware like body-parser or express.json() is needed to populate this property.
+3. **req.body**: Contains key-value pairs of data submitted in the request body. By default, it is undefined. Middleware like body-parser or express.json() is needed to populate this property.
    Type: object
 
-4. `req.cookies`: When using the cookie-parser middleware, this property contains cookies sent by the client.
+4. **req.cookies**: When using the cookie-parser middleware, this property contains cookies sent by the client.
    Type: object
 
-5. `req.hostname`: Contains the hostname derived from the Host HTTP header.
+5. **req.hostname**: Contains the hostname derived from the Host HTTP header.
    Type: string
 
-6. `req.ip`: The remote IP address of the request.
+6. **req.ip**: The remote IP address of the request.
    Type: string
 
-7. `req.method`: The HTTP method of the request (e.g., GET, POST).
+7. **req.method**: The HTTP method of the request (e.g., GET, POST).
    Type: string
 
-8. `req.params`: Contains route parameters, captured in the URL pattern of the route.
+8. **req.params**: Contains route parameters, captured in the URL pattern of the route.
    Type: object
 
-9. `req.path`: The request path (excluding the query string).
+9. **req.path**: The request path (excluding the query string).
    Type: string
 
-10. `req.protocol`: The request protocol (http or https).
+10. **req.protocol**: The request protocol (http or https).
     Type: string
 
-11. `req.query`: An object containing a property for each query string parameter.
+11. **req.query**: An object containing a property for each query string parameter.
     Type: object
 
-12. `req.route`: The currently matched route.
+12. **req.route**: The currently matched route.
     Type: object
 
 ### Response Object:
@@ -110,94 +110,95 @@ app.get("/", (req, res) => {
 - ServerResponse object from Node.js, augmented with additional properties and methods by Express.
 - This object is used to send back the desired HTTP response to the client.
 
-1. `res.attachment([filename])`: Sets the Content-Disposition header to "attachment" to prompt the user to download the file.
+1. **res.attachment([filename])**: Sets the Content-Disposition header to "attachment" to prompt the user to download the file.
 
-   - `Parameter`:
-     - `filename (string)` - Optional. The name of the file to download.
+   - **Parameter**:
+     - **filename (string)** - Optional. The name of the file to download.
 
-2. `res.cookie(name, value [, options])`: Sets a cookie with the specified name and value.
+2. **res.cookie(name, value [, options])**: Sets a cookie with the specified name and value.
 
-   - `Parameters`:
-     - `name (string)` - The name of the cookie.
-     - `value (string or object)` - The value of the cookie.
-     - `options (object)` - Optional. Options for the cookie.
+   - **Parameters**:
+     - **name (string)** - The name of the cookie.
+     - **value (string or object)** - The value of the cookie.
+     - **options (object)** - Optional. Options for the cookie.
 
-3. `res.clearCookie(name [, options])`: Clears the cookie specified by name.
+3. **res.clearCookie(name [, options])**: Clears the cookie specified by name.
 
-   - `Parameters`:
-     - `name (string)` - The name of the cookie to clear.
-     - `options (object)` - Optional. Options for clearing the cookie.
+   - **Parameters**:
+     - **name (string)** - The name of the cookie to clear.
+     - **options (object)** - Optional. Options for clearing the cookie.
 
-4. `res.download(path [, filename] [, options] [, fn])`: Transfers the file at path as an "attachment", prompting a file download.
+4. **res.download(path [, filename] [, options] [, fn])**: Transfers the file at path as an "attachment", prompting a file download.
 
-   - `Parameters`:
-     - `path (string)` - The file path.
-     - `filename (string)` - Optional. The name of the file to download.
-     - `options (object)` - Optional. Options for the download.
-     - `fn (function)` - Optional. A callback function.
+   - **Parameters**:
+     - **path (string)** - The file path.
+     - **filename (string)** - Optional. The name of the file to download.
+     - **options (object)** - Optional. Options for the download.
+     - **fn (function)** - Optional. A callback function.
 
-5. `res.end([data] [, encoding] [, callback])`: Ends the response process.
+5. **res.end([data] [, encoding] [, callback])**: Ends the response process.
 
-   - `Parameters`:
-     - `data (string or buffer)` - Optional. Data to send as the response body.
-     - `encoding (string)` - Optional. The encoding of the data.
-     - `callback (function)` - Optional. A callback function.
+   - **Parameters**:
+     - **data (string or buffer)** - Optional. Data to send as the response body.
+     - **encoding (string)** - Optional. The encoding of the data.
+     - **callback (function)** - Optional. A callback function.
 
-6. `res.get(field)`: Returns the value of the specified HTTP response header field.
+6. **res.get(field)**: Returns the value of the specified HTTP response header field.
 
-   - `Parameter`:
-     - `field (string)` - The name of the header field.
-     - `Returns`: The value of the header field.
+   - **Parameter**:
+     - **field (string)** - The name of the header field.
+     - **Returns**: The value of the header field.
 
-7. `res.json([body])`: Sends a JSON response.
+7. **res.json([body])**: Sends a JSON response.
 
-   - `Parameter`:
-     - `body (object)` - Optional. The response body.
+   - **Parameter**:
+     - **body (object)** - Optional. The response body.
 
-8. `res.links(links)`: Sets the Link HTTP header with the provided links.
-   `- Parameter`: links (object) - An object of links.
+8. **res.links(links)**: Sets the Link HTTP header with the provided links.
 
-9. `res.location(path)`: Sets the Location HTTP header to the specified path.
+   - **Parameter**: links (object) - An object of links.
 
-   - `Parameter`: path (string) - The location URL.
+9. **res.location(path)**: Sets the Location HTTP header to the specified path.
 
-10. `res.redirect([status,] path)`: Redirects the request to the specified URL with an optional status code.
+   - **Parameter**: path (string) - The location URL.
 
-    - `Parameters`:
-      - `status (number)` - Optional. The HTTP status code.
-      - `path (string)` - The URL to redirect to.
+10. **res.redirect([status,] path)**: Redirects the request to the specified URL with an optional status code.
 
-11. `res.render(view [, locals] [, callback])`: Renders a view and sends the HTML as the response.
+    - **Parameters**:
+      - **status (number)** - Optional. The HTTP status code.
+      - **path (string)** - The URL to redirect to.
 
-    - `Parameters`:
-      - `view (string)` - The name of the view to render.
-      - `locals (object)` - Optional. Local variables for the view.
-      - `callback (function)` - Optional. A callback function.
+11. **res.render(view [, locals] [, callback])**: Renders a view and sends the HTML as the response.
 
-12. `res.send([body])`: Sends the HTTP response.
+    - **Parameters**:
+      - **view (string)** - The name of the view to render.
+      - **locals (object)** - Optional. Local variables for the view.
+      - **callback (function)** - Optional. A callback function.
 
-    - `Parameter`:
-      - `body (string, buffer, or object)` - Optional. The response body.
+12. **res.send([body])**: Sends the HTTP response.
 
-13. `res.sendFile(path [, options] [, fn])`: Sends a file as an octet stream.
+    - **Parameter**:
+      - **body (string, buffer, or object)** - Optional. The response body.
 
-    - `Parameters`:
-      - `path (string)` - The file path.
-      - `options (object)` - Optional. Options for sending the file.
-      - `fn (function)` - Optional. A callback function.
+13. **res.sendFile(path [, options] [, fn])**: Sends a file as an octet stream.
 
-14. `res.sendStatus(statusCode)`: Sets the HTTP status code and sends the status as the response body.
+    - **Parameters**:
+      - **path (string)** - The file path.
+      - **options (object)** - Optional. Options for sending the file.
+      - **fn (function)** - Optional. A callback function.
+
+14. **res.sendStatus(statusCode)**: Sets the HTTP status code and sends the status as the response body.
 
     - Parameter: statusCode (number) - The HTTP status code.
 
-15. `res.set(field [, value])`: Sets the response header field to the specified value, or sets multiple fields if an object
+15. **res.set(field [, value])**: Sets the response header field to the specified value, or sets multiple fields if an object
     is passed.
 
-    - `Parameters`:
-      - `field (string or object)` - The name of the header field or an object of header fields.
-      - `value (string)` - Optional. The value of the header field.
+    - **Parameters**:
+      - **field (string or object)** - The name of the header field or an object of header fields.
+      - **value (string)** - Optional. The value of the header field.
 
-16. `res.status(code)`: Sets the HTTP status for the response.
+16. **res.status(code)**: Sets the HTTP status for the response.
     - Parameter: code (number) - The HTTP status code.
 
 ## HTTP
@@ -223,15 +224,15 @@ app.get("/", (req, res) => {
 
 - HTTP headers are of 4 types
 
-1. request headers
-2. response headers
-3. general headers
-4. entity headers
+  1.  request headers
+  2.  response headers
+  3.  general headers
+  4.  entity headers
 
-5. `request headers`: These type of http headers stores information about clients fetch request.
-6. `response headers`: This header is use to store the information about server responses like status code.
-7. `general headers`: This headers are applied to both request and response.
-8. `entity headers`: They are the info about the data like content length and content type.
+1. **request headers**: These type of http headers stores information about clients fetch request.
+2. **response headers**: This header is use to store the information about server responses like status code.
+3. **general headers**: This headers are applied to both request and response.
+4. **entity headers**: They are the info about the data like content length and content type.
 
 #### Example
 
@@ -249,15 +250,15 @@ app.get("/", (req, res) => {
 
 - HTTP method typically associated with Restful wb development and hypertext transfer protocol and most commonly used by Restful api, designers:
 
-1. GET
-2. PUT
-3. POST
-4. DELETE
-5. PATCH
-6. HEAD
-7. OPTIONS
-8. TRACE
-9. CONNECT
+  1.  GET
+  2.  PUT
+  3.  POST
+  4.  DELETE
+  5.  PATCH
+  6.  HEAD
+  7.  OPTIONS
+  8.  TRACE
+  9.  CONNECT
 
 ## Q1. What is the difference between create method and post method in rest API
 
@@ -270,11 +271,11 @@ app.get("/", (req, res) => {
 
 - Status Codes are divided into 5 classes
 
-1. Information responses (100 - 199)
-2. Successfull codes (200 - 299)
-3. Re-directional codes (300 - 399)
-4. Client-side Error (400 - 499)
-5. Server-Side Error (500 - 599)
+  1.  Information responses (100 - 199)
+  2.  Successfull codes (200 - 299)
+  3.  Re-directional codes (300 - 399)
+  4.  Client-side Error (400 - 499)
+  5.  Server-Side Error (500 - 599)
 
 - 100 - continue
 - 101 - switching protocol
@@ -309,3 +310,112 @@ The content-type header is to indicate the media type of the resource the media 
 - application/x-www-formation coded (url data)
 - video/mp4 (mp4 video)
 - multipart/form-data (formdata/file uploading)
+
+## Express Middleware
+
+- ExpressJS Middleware are some functions that invoked by the express server routing layer before the final response.
+- Express.js middleware consists of functions with access to the request object (req), the response object (res) and a special function called "next".
+- These functions can modify the request and response object terminate the request-response cycle or pass ccontrol to the next middleware in the stack.
+- As per the name middleware functions execute between the initial request and the final response, in stack middlewares execute by the sequence of there declaration in the program
+
+<img src="https://i.ibb.co/3dXttt4/2024-09-20-11-54-12-AI-Eraser.png">
+
+#### Sytax
+
+```
+app.use('path', (req, res, next) => {})
+app.method('path', (req, res, next) => {})
+```
+
+- Each middleware function has the access to request object, response object and next function.
+- The next function in a middleware use to call or execute the next middleware function if there is any.
+
+### Advantages of Middleware Function
+
+- **Modularity**: Middleware allows developers to modularize and organize code by breaking down the application logic into smaller, manageable functions.
+- **Request-Response Processing**: Middleware functions can intercept and modify both incoming requests and outgoing responses, enabling tasks such as authentication, logging, and data validation.
+- **Extensibility**: Developers can easily extend and enhance the functionality of an application by adding or removing middleware functions.
+- **Reusability**: Middleware functions are reusable components that can be applied to different routes or across multiple applications, promoting code reuse.
+- **Error Handling**: Middleware can handle errors globally or for specific routes, improving the overall robustness of the application.
+
+## Middleware Chaining
+
+<img src="https://i.ibb.co/zQLdxgh/2024-09-20-12-14-27-AI-Eraser.png">
+
+- Middleware can be chained from one to another, Hence creating a chain fo functions that are executed in order.
+- The last function sends the response back to the browser.
+- So, before sending the response back to the browser the different middleware processes the request.
+- Middleware are 5 types:
+
+  1.  Application Level Middleware
+  2.  Router Middelware
+  3.  Error-Handling Middleware
+  4.  Inbuilt Middleware
+  5.  Third Party Middleware
+
+### Application Level Middleware
+
+- Application Level Middleware bound to the entire application using `app.use()` or `app.METHOD()` and executes for all routes the matching routes.
+
+```
+const express = require("express");
+const app = express();
+const port = 5000;
+
+// middleware
+const m1 = (req, res, next) => {
+  console.log("middleware 1");
+  next();
+};
+const m2 = (req, res, next) => {
+  console.log("middleware 2");
+  next();
+};
+app.use("/", m1, m2);
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
+app.listen(port, () => {
+  console.log(`Server is working on http://localhost:${port}`);
+});
+```
+
+### Router Level Middleware
+
+- Router-level middleware is specific to a particular route or group of routes.
+
+- It is applied using `app.use()` or within a specific router.
+- Router-level middleware are used for spliting the routes into a different page these works in the same way as application level middleware but these are bound to the instance of `express.Router()`.
+
+#### Syntax
+
+```
+const router = express.Router();
+app.use('path', router)
+router.use('path', (req, res, next) => {})
+router.method('path', (req, res, next) => {})
+```
+
+```
+const express = require("express");
+const app = express();
+const port = 5000;
+
+// router-middleware
+const userRouter = express.Router();
+app.use("/user", userRouter);
+
+userRouter.get("/virat", (req, res) => {
+  res.send({ name: "Virat", age: 20 });
+});
+
+userRouter.get("/rohit", (req, res) => {
+  res.send({ name: "Rohit", age: 25 });
+});
+
+app.listen(port, () => {
+  console.log(`Server is working on http://localhost:${port}`);
+});
+```
