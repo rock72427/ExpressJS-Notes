@@ -642,7 +642,7 @@ data => { key: values, ... }
 ## What is the MVC
 
 - MVC stands for Model, View, Controller is an architectural pattern that separates an application into three main logical components: the modek, the view, and the controller.
-- Each one of these components is built to handle specific development aspects of an application.
+- Each one of these components is built to handle specific development aspects of an application.\
   <img src="https://media.geeksforgeeks.org/wp-content/uploads/mvc-block-diagram.png">
 
 - **Controller** is the part that takes care of client request processing which handles the HTTP Request and returns a response the response could be either a JSON if you're calling an API endpoint or regular HTML webpage.
@@ -668,3 +668,25 @@ data => { key: values, ... }
 
 - Microservices is a small, loosely coupled distributed service.
 - Each microservice is designed to perform a specific business function and can be developed, deployed and scaled independently.
+- Microservices can be written in a variety of programming language, and frameworks, and each service acts as a mini-application on its own.
+- Microservices work by breaking down a complex application into smaller, independent pieces that communicate and work together, providing flexibility, scalability and easier maintenance.
+
+## API Testing
+
+- API Testing is a type of software testing that analyze an API to verify that it fullfills the expected response.
+- These Testing either perform directly on the API or as a part of integrating testing.
+
+## API Testing Tools
+
+- API Testing Tools allows the developer's to test server API's without view component(UI).
+- These tools are directly intergated with API's to send the request to the server and get the response.
+- Some of the popular API Testing Tools are:
+  - Postman
+  - Swagger
+  - Insomnia
+  - RapidAPI
+  - ThunderClient
+
+## Postman
+
+- Postman is a software that offers an API platform to design, buid, test and collabrate on APIs.
