@@ -638,3 +638,33 @@ data => { key: values, ... }
 ```
 <%- include('path', data) %>
 ```
+
+## What is the MVC
+
+- MVC stands for Model, View, Controller is an architectural pattern that separates an application into three main logical components: the modek, the view, and the controller.
+- Each one of these components is built to handle specific development aspects of an application.
+  <img src="https://media.geeksforgeeks.org/wp-content/uploads/mvc-block-diagram.png">
+
+- **Controller** is the part that takes care of client request processing which handles the HTTP Request and returns a response the response could be either a JSON if you're calling an API endpoint or regular HTML webpage.
+- **Model** is the database interface which lets you interact with the database API and create different entity schemas of your app on the database.
+- **View** is what compiles and renders into plain HTML and what the client in most cases going to get back as a response of what he requested.
+
+## Advantages of using MVC Architecture
+
+- Clean and organized code.
+- Easy to test and debug the code.
+- Separating the server routings.
+- Improve scalability.
+- Improve being productivity and collabaration.
+- Easy to maintain and update server functionalities.
+- Some of the popular application using MVC:
+  - Spring
+  - Django
+  - Laravel
+  - Ruby on Rails
+  - ASP.NET
+
+## Microservices
+
+- Microservices is a small, loosely coupled distributed service.
+- Each microservice is designed to perform a specific business function and can be developed, deployed and scaled independently.
