@@ -419,3 +419,222 @@ app.listen(port, () => {
   console.log(`Server is working on http://localhost:${port}`);
 });
 ```
+
+### Error-handling middleware
+
+- Handles errors during the request-response cycle.
+- Defined with four parameters (err, req, res, next).
+
+#### Syntax
+
+```
+app.use((error, request, response, next) => {
+  // logic to handle the error
+})
+```
+
+```
+const express = require("express");
+const app = express();
+const port = 5000;
+
+// error-handling middleware
+app.get("/", (req, res) => {
+  throw "something went wrong";
+});
+
+app.use((error, req, res, next) => {
+  res.send("service unavailable");
+});
+
+app.listen(port, () => {
+  console.log(`Server is working on http://localhost:${port}`);
+});
+```
+
+### In-built Middleware
+
+- In built Middleware are some pre-defined methods provided by the express library to achieve different functionalities.
+- Some of the inbuilt middleware:
+
+#### Example
+
+```
+express.static()
+express.json()
+express.urlencoded()
+express.cookieparser()
+express.cors()
+express.session()
+```
+
+### express.static()
+
+- This middleware use to provide static files like HTML, CSS, images and JS file to the server from a directory.
+
+#### Syntax
+
+```
+app.use(express.static('folderPath'))
+```
+
+### express.json()
+
+- This middleware use to parse the incomming JSON request.
+- It makes the JSON data available for `req.body` property.
+
+### Syntax
+
+```
+app.use(express.json())
+```
+
+### express.urlencoded()
+
+- This middleware use to except the incomming URL data in the request object.
+
+#### Syntax
+
+```
+app.use(express.urlencoded({extended: true}))
+```
+
+### Third Party Middleware
+
+- Express allows a server to use third party libraries or packages from npm library to extend the server functionalities.
+
+### Benifit of using Third Party of Middleware
+
+1. Improving performance.
+2. Secure data communication.
+3. Database and network connection.
+4. Better authentication and authorization.
+
+## Some of the popular third party middleware
+
+### 1. body-parser
+
+- This is use to parse the body of requests which have payloads attached to them.
+
+#### install
+
+```
+npm i body.parser
+```
+
+#### use
+
+```
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+```
+
+### 2. cookie-parser
+
+- It parses Cookie header and populate req.cookies with an object keyed by cookie names.
+
+#### install
+
+```
+npm i cookie-parser
+```
+
+#### use
+
+```
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+```
+
+### 3. cors
+
+- This library use to solve the cors policy error of a server.
+
+#### install
+
+```
+npm i cors
+```
+
+#### use
+
+```
+const cors = require('cors');
+app.use(cors());
+app.use(cors({origin: 'url'}))
+```
+
+### 4. morgan
+
+- Console the http requests.
+
+### 5. helmet
+
+- Set headers.
+
+## Template Engines
+
+- One of the key features of Express is its ability to integrate with template engines, allowing developers to dynamically generate HTML pages with data from their server.
+- A template engine facilitates you to use static template files in your applications.
+- At runtime, it replaces variables in a template file with actual values and transfroms the template into an HTML file sent to the client.
+- Example of some popular template engines:
+  - eco
+  - ect
+  - ejs
+  - haml
+  - haml-coffee
+  - handlebars
+- Using ejs as a template engine (Embedded Javascript)
+
+#### install
+
+```
+npm i ejs
+```
+
+#### use
+
+```
+app.set('view engine', 'ejs'); (setting the template engine)
+app.set('views', directoryPath)
+
+directoryPath => default views folder
+```
+
+#### Response
+
+```
+res.render(fileName, data)
+
+fileName => ejs filename
+data => { key: values, ... }
+```
+
+#### Variables
+
+```
+<%= varName %>
+```
+
+#### Condition
+
+```
+<% if(condition){ %>
+
+<% } %>
+```
+
+#### Array Method
+
+```
+  <% array.method((element) => { %>
+    // statement
+  <% }); %>
+```
+
+#### Partials
+
+```
+<%- include('path', data) %>
+```

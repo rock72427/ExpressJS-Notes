@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <%- include("./partials/Navbar") %>
+    <h1>This is a dynamic file</h1>
+    <h2><%= name %></h2>
+    <h2><%= age %></h2>
+    <h2><%= address %></h2>
+
+    <!-- condition -->
+    <% if(age > 18){ %>
+    <p>Eligilbe for voting</p>
+    <% } %>
+
+    <!-- looping-->
+    <% for(let i = 0; i <= 10; i++){ %>
+    <li>i == <%= i%></li>
+    <% } %>
+
+    <!-- looping-->
+    <% fruits.forEach(function(fruit) { %>
+    <button><%= fruit %></button>
+    <% }); %>
+  </body>
+</html>
