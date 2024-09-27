@@ -690,3 +690,18 @@ data => { key: values, ... }
 ## Postman
 
 - Postman is a software that offers an API platform to design, buid, test and collabrate on APIs.
+  <img src="https://i.ibb.co/09kPbDt/2024-09-27-11-44-27-AI-Eraser.png" width="800px" >
+
+## What is the difference between req.query and req.params?
+
+| Aspect             | req.query                                                                                                 | req.params                                                                                                                         |
+| ------------------ | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Source of Data     | Extra bits at the end of a URL (e.g., from inputs, search bar)                                            | changing parts in the URL marked by colons                                                                                         |
+| Example URL        | '/search?q=example'                                                                                       | '/users/:id'                                                                                                                       |
+| Usage              | Ideal for handling URL parameters, especially with search terms                                           | Useful when dealing with dynamic values within a consistent URL structure                                                          |
+| Express.js Example | ‘javascript app.get(‘/search’, (req, res) => { const searchTerm = req.query.q; // Process search term }); | `javascript app.get(‘/users/:id’, (req, res) => { const userId = req.params.id; // Fetch user details based on dynamic user ID }); |
+| Scenario Example   | Handling a search feature on a website                                                                    | Accessing user-specific information on a page                                                                                      |
+
+<img src="https://i.ibb.co/SxJPwxw/2024-09-27-12-11-50-AI-Eraser.png" width="600px" >\
+<img src="https://i.ibb.co/NtGJfV8/2024-09-27-12-15-33-AI-Eraser.png" width="600px" >\
+<img src="https://i.ibb.co/bdcNX3C/2024-09-27-12-43-19-AI-Eraser.png" width="600px" >

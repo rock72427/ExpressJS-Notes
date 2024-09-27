@@ -67,6 +67,18 @@ app.get("/cookie", (req, res) => {
   res.status(200).json({ message: req.cookies.msg });
 });
 
+// getAPI
+app.get("/query", (req, res) => {
+  console.log(req.query);
+  res.send("Nice");
+});
+
+// getAPI (params)
+app.get("/user/:name", (req, res) => {
+  console.log(req.params);
+  res.send("Nice");
+});
+
 app.listen(port, () => {
   console.log(`Server is working on http://localhost:${port}`);
 });
