@@ -1,16 +1,26 @@
 const express = require("express");
+const {
+  addStudent,
+  getStudent,
+  studentLogin,
+  updateStudent,
+  deleteStudent,
+} = require("../controllers/student.controller.js");
 const studentRouter = express.Router();
 
 // api
 // demo
-studentRouter.get("/", (req, res) => {
-  res.send("Student router is working fine");
-});
+studentRouter.get("/", getStudent);
 
 // post(add student)
-studentRouter.post("/add", (req, res) => {
-  const { name, age, email } = req.body;
-  console.log(req.body);
-});
+studentRouter.post("/add", addStudent);
+
+// login(student login)
+studentRouter.post("/login", studentLogin);
+
+studentRouter.put("/update", updateStudent);
+
+// deleteStudent
+studentRouter.delete("/delete/:id", deleteStudent);
 
 module.exports = { studentRouter };

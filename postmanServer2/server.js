@@ -2,7 +2,8 @@ const express = require("express");
 const { studentRouter } = require("./routes/student.routes.js");
 const { teacherRouter } = require("./routes/teacher.routes.js");
 const app = express();
-app.use(express.json());
+// middlewares
+app.use(express.json()); // json data parsing
 
 const port = 7777;
 
